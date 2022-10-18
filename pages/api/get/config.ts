@@ -1,13 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
+import {Repository} from "../../../public/repositories/repository"
 
-type Data = {
-  name: string
-}
+let repo = new Repository();
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<any>
 ) {
-  res.status(200).json({ name: 'John Doe' })
+    res.status(200).json(repo.getConfig())
 }
